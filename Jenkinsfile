@@ -7,13 +7,13 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: 'https://github.com/aravindhrcodes/api-gateway.git', branch: 'main'
+                git url: 'https://github.com/AryanKulathinal/project1-api-gateway.git', branch: 'main'
             }
         }
         stage('Pre_Build'){
             steps {
-                bat "docker rm -f config_container"
-                bat "docker rmi -f config_image"
+                bat "docker rm -f gateway_container"
+                bat "docker rmi -f gateway_image"
             }
         }
         stage('Build') {
@@ -29,8 +29,8 @@ pipeline {
         stage('Deploy') {
             steps {
 
-                bat "docker build -t config_image ."
-                bat "docker run -p 8088:8088 -d --name config_container config_image"
+                bat "docker build -t gateway_image ."
+                bat "docker run -p 8060:8060 -d --name gateway_container gateway_image"
             }
         }
     }
