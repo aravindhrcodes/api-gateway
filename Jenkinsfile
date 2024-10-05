@@ -7,7 +7,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git url: 'https://github.com/AryanKulathinal/project1-api-gateway.git', branch: 'main'
+                git url: 'https://github.com/aravindhrcodes/api-gateway.git', branch: 'main'
             }
         }
         stage('Pre_Build'){
